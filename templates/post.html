@@ -1,4 +1,12 @@
 {% extends "base.html" %} {% block title %} Post page {% endblock %} {% block
 content %}
 <h1>Post page</h1>
-{% endblock %}
+<h1>{{ author }}</h1>
+{% for post in posts %}
+<tr>
+  <td>{{ post.title }}</td>
+  <td>{{ post.author }}</td>
+  <td>{{ post.content }}</td>
+  <td>{{ post.publish_date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+</tr>
+{% endfor %} {% endblock %}
