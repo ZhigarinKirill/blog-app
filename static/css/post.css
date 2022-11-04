@@ -1,0 +1,32 @@
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container > div {
+  margin-top: 20px;
+  width: 800px;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.bwrap {
+  padding: 0 14px;
+  outline: none;
+  letter-spacing: 0.5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: gold;
+}
+
+.bwrap::first-line {
+  line-height: 0px;
+}

@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% set active_page = "post_page" %} {% block head %}
+<title>Posts</title>
+<link rel="stylesheet" href="../static/css/post.css" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous"
+/>
+{% endblock head %} {% block content %}
+<div class="flex-container">
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 30%">Publish date</th>
+          <th scope="col" style="width: 25%">Author</th>
+          <th scope="col" style="width: 30%">Title</th>
+          <th scope="col" style="width: 15%">Content</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for post in posts %}
+        <tr>
+          <td>{{ post.publish_date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+          <td>{{ post.author }}</td>
+          <td>{{ post.title }}</td>
+
+          <td>
+            <a class="btn btn-light row-toggler"> Show </a>
+          </td>
+        </tr>
+        <tr class="content-row hidden">
+          <td colspan="4">
+            <div>
+              <div class="card card-body bwrap">{{ post.content }}</div>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %} {% block footer %}
+
+<script type="text/javascript" src="../static/js/post.js"></script>
+{% endblock footer %}
