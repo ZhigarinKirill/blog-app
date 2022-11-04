@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% set active_page = "post_page" %} {% block title %}
 Post page {% endblock %} {% block head %}
+
 <link rel="stylesheet" href="../static/css/post.css" />
 <link
   rel="stylesheet"
@@ -13,10 +14,13 @@ Post page {% endblock %} {% block head %}
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Publish date</th>
-          <th scope="col">Author</th>
-          <th scope="col">Title</th>
-          <th scope="col">Content</th>
+          <th scope="col" style="width: 30%">Publish date</th>
+          <th scope="col" style="width: 25%">Author</th>
+          <th scope="col" style="width: 30%">Title</th>
+          <th scope="col" style="width: 15%">Content</th>
+          {#
+          <th class="text-center" scope="col" style="width: 40%">Content</th>
+          #}
         </tr>
       </thead>
       <tbody>
@@ -25,11 +29,37 @@ Post page {% endblock %} {% block head %}
           <td>{{ post.publish_date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
           <td>{{ post.author }}</td>
           <td>{{ post.title }}</td>
-          <td style="white-space: pre">{{ post.content }}</td>
+
+          <td>
+            <a class="btn btn-light row-toggler"> Show </a>
+          </td>
+          {#
+          <td>
+            {{ post.content }}
+            <a
+              class="btn btn-primary toggle-text"
+              data-toggle="collapse"
+              href="#collapseExample"
+            >
+              See <span>more</span><span class="hidden">less</span>...
+            </a>
+          </td>
+          #}
+        </tr>
+        <tr class="content-row hidden">
+          <td colspan="4">
+            <div>
+              <div class="card card-body">{{ post.content }}</div>
+            </div>
+          </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
 </div>
-{% endblock %}
+
+{% endblock %} {% block footer %}
+
+<script type="text/javascript" src="../static/js/post.js"></script>
+{% endblock footer %}

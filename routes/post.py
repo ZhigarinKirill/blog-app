@@ -6,9 +6,10 @@ from models import Post
 post_pages = Blueprint('posts', __name__)
 
 
-# @post_pages.route("/", methods=['GET'])
-# def home():
-#     return render_template('home.html')
+@post_pages.route("/clear", methods=['GET'])
+def delete_posts():
+    Post.objects.delete()
+    return render_template('post.html')
 
 
 @post_pages.route("/", methods=['GET'])

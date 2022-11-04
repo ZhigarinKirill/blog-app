@@ -4,7 +4,16 @@
   align-items: center;
 }
 
-.flex-container div {
+.flex-container > div {
   margin-top: 20px;
-  width: 1200px;
+  width: 800px;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
 }
