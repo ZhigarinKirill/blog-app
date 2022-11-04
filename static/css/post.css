@@ -17,3 +17,16 @@ table {
 .hidden {
   display: none;
 }
+
+.bwrap {
+  padding: 0 14px;
+  outline: none;
+  letter-spacing: 0.5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: gold;
+}
+
+.bwrap::first-line {
+  line-height: 0px;
+}

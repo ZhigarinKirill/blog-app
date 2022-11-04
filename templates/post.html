@@ -1,6 +1,5 @@
-{% extends "base.html" %} {% set active_page = "post_page" %} {% block title %}
-Posts {% endblock %} {% block head %}
-
+{% extends "base.html" %} {% set active_page = "post_page" %} {% block head %}
+<title>Posts</title>
 <link rel="stylesheet" href="../static/css/post.css" />
 <link
   rel="stylesheet"
@@ -34,7 +33,7 @@ Posts {% endblock %} {% block head %}
         <tr class="content-row hidden">
           <td colspan="4">
             <div>
-              <div class="card card-body">{{ post.content }}</div>
+              <div class="card card-body bwrap">{{ post.content }}</div>
             </div>
           </td>
         </tr>
