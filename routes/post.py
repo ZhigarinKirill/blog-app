@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, redirect, url_for
+from flask import Blueprint, request, render_template, redirect, url_for, jsonify
 from forms import CreationForm
 from models import Post
 
@@ -6,7 +6,7 @@ from models import Post
 post_pages = Blueprint('posts', __name__)
 
 
-@post_pages.route("/clear", methods=['GET'])
+@post_pages.route("/clear")
 def delete_posts():
     Post.objects.delete()
     return render_template('post.html')

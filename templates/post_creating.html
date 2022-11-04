@@ -1,5 +1,5 @@
-{% extends "base.html" %} {% block title %} Post creating page {% endblock %} {%
-block head %}
+{% extends "base.html" %}{% set active_page = "post_page" %}{% block title %}
+Post creating page {% endblock %} {% block head %}
 <link rel="stylesheet" href="../static/css/post_creating.css" />
 <link
   rel="stylesheet"
@@ -12,38 +12,17 @@ block head %}
   <div>
     <form method="post" role="form">
       <div class="form-group">
-        {#
-        <input
-          type="text"
-          class="form-control"
-          name="author"
-          placeholder="Author"
-        />
-        #} {{ form.author(class="form-control", placeholder="Author") }}
+        {{ form.author(class="form-control", placeholder="Author") }}
       </div>
       <div class="form-group">
-        {#
-        <input
-          type="text"
-          class="form-control"
-          name="title"
-          placeholder="Title"
-        />
-        #} {{ form.title(class="form-control", placeholder="Title") }}
+        {{ form.title(class="form-control", placeholder="Title") }}
       </div>
       <div class="form-group">
         <textarea class="form-control bcontent" name="content"></textarea>
       </div>
       <div class="form-group">
-        {#
-        <input
-          type="submit"
-          name="Submit"
-          value="Publish"
-          class="btn btn-primary form-control"
-        />
-        #} {{ form.submit(class="btn btn-primary btn-block") }} {% for
-        field_name in form.errors %}{% for error in form.errors[field_name] %}
+        {{ form.submit(class="btn btn-primary btn-block") }} {% for field_name
+        in form.errors %}{% for error in form.errors[field_name] %}
         <li>{{ field_name }}: {{ error }}</li>
         {% endfor %} {% endfor %}
       </div>

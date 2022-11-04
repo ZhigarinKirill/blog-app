@@ -8,6 +8,7 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+
     <title>{% block title %}{% endblock %}</title>
     {% endblock %}
   </head>
@@ -34,11 +35,36 @@
             <a class="nav-link" href="{{ url_for('home') }}">Home</a>
           </li>
           <li
-            class="nav-item {% if active_page == 'post_page' %} active {% endif %}"
+            class="nav-item dropdown {% if active_page == 'post_page' %} active {% endif %}"
           >
-            <a class="nav-link" href="{{ url_for('posts.display_posts') }}"
-              >Posts</a
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
+              Posts
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a
+                class="dropdown-item"
+                href="{{ url_for('posts.display_posts') }}"
+                >Show all posts</a
+              >
+              <a class="dropdown-item" href="{{ url_for('posts.create_post') }}"
+                >Create post</a
+              >
+
+              <a
+                class="dropdown-item"
+                href="{{ url_for('posts.delete_posts') }}"
+              >
+                Delete all posts
+              </a>
+            </div>
           </li>
           <li
             class="nav-item {% if active_page == 'about_page' %} active {% endif %}"
