@@ -13,19 +13,21 @@ def home():
 
 @post_pages.route("/posts/", methods=['GET'])
 def display_posts():
-    author = request.args.get('author') or ''
-    posts = Post.objects
-    # return posts.title
-    return render_template('post.html', author=author, posts=posts)
+    author = request.args.get('author')
+    if author is not None:
+        posts = Post.objects(author='a1').first()
+        return posts.author
+    else:
+        posts = Post.objects
+    return render_template('post.html', posts=posts)
 
 
-@post_pages.route("/posts/create", methods=['GET', 'POST'])
+@ post_pages.route("/posts/create", methods=['GET', 'POST'])
 def create_post():
+    form = CreationForm(request.form)
     if request.method == 'POST':
-        creation_form = CreationForm(request.form)
-        post = Post(title=creation_form.title.data, content=creation_form.content.data,
-                    publish_date=creation_form.publish_date.data, author=creation_form.author.data)
+        post = Post(title=form.title.data, content=form.content.data,
+                    publish_date=form.publish_date.data, author=form.author.data)
         post.save()
         return redirect(url_for('posts.display_posts'))
-    elif request.method == 'GET':
-        return render_template('new_post.html')
+    return render_template('post_creating.html', form=form)

@@ -1,0 +1,14 @@
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container div {
+  margin-top: 20px;
+  width: 600px;
+}
+
+textarea {
+  height: 200px;
+}
