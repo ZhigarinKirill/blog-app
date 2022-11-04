@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% set active_page = "post_page" %} {% block title %}
-Post page {% endblock %} {% block head %}
+Posts {% endblock %} {% block head %}
 
 <link rel="stylesheet" href="../static/css/post.css" />
 <link
@@ -18,9 +18,6 @@ Post page {% endblock %} {% block head %}
           <th scope="col" style="width: 25%">Author</th>
           <th scope="col" style="width: 30%">Title</th>
           <th scope="col" style="width: 15%">Content</th>
-          {#
-          <th class="text-center" scope="col" style="width: 40%">Content</th>
-          #}
         </tr>
       </thead>
       <tbody>
@@ -33,18 +30,6 @@ Post page {% endblock %} {% block head %}
           <td>
             <a class="btn btn-light row-toggler"> Show </a>
           </td>
-          {#
-          <td>
-            {{ post.content }}
-            <a
-              class="btn btn-primary toggle-text"
-              data-toggle="collapse"
-              href="#collapseExample"
-            >
-              See <span>more</span><span class="hidden">less</span>...
-            </a>
-          </td>
-          #}
         </tr>
         <tr class="content-row hidden">
           <td colspan="4">
