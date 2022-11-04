@@ -6,12 +6,12 @@ from models import Post
 post_pages = Blueprint('posts', __name__)
 
 
+# @post_pages.route("/", methods=['GET'])
+# def home():
+#     return render_template('home.html')
+
+
 @post_pages.route("/", methods=['GET'])
-def home():
-    return render_template('home.html')
-
-
-@post_pages.route("/posts/", methods=['GET'])
 def display_posts():
     author = request.args.get('author')
     if author is not None:
@@ -22,7 +22,7 @@ def display_posts():
     return render_template('post.html', posts=posts)
 
 
-@ post_pages.route("/posts/create", methods=['GET', 'POST'])
+@ post_pages.route("/create", methods=['GET', 'POST'])
 def create_post():
     form = CreationForm(request.form)
     if request.method == 'POST':
