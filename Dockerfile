@@ -1,0 +1,11 @@
+FROM python:3.9.9-alpine
+
+WORKDIR /app
+COPY . .
+
+RUN pip install -r requirements.txt
+
+ENV FLASK_DEBUG=1
+ENV FLASK_RUN_HOST=0.0.0.0
+
+CMD ["flask", "run"]
