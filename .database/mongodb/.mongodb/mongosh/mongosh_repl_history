@@ -1,0 +1,6 @@
+db.post.find()
+db.post
+show collections
+use blog_db
+show dbs
+db.getCollectionNames()
