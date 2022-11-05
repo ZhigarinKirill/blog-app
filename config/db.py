@@ -15,4 +15,4 @@ class MongodbConfig(object):
     MONGODB_DB = environ.get('MONGODB_DB')
 
     def __repr__(self) -> str:
-        return f'mongodb://{self.MONGODB_USERNAME}:{self.MONGODB_PASSWORD}@{self.MONGODB_HOSTNAME}:{self.MONGODB_PORT}/{self.MONGODB_DATABASE}'
+        return f'mongodb://{self.MONGODB_USERNAME}:{self.MONGODB_PASSWORD}@{self.MONGODB_HOST}:{self.MONGODB_PORT}/{self.MONGODB_DB}'
