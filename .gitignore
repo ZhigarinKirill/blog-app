@@ -6,6 +6,10 @@ __pycache__/
 # Visual Studio Code
 .vscode/
 
+# Database files
+
+.database/
+
 # C extensions
 *.so
 
