@@ -16,10 +16,9 @@ def delete_posts():
 def display_posts():
     author = request.args.get('author')
     if author is not None:
-        posts = Post.objects(author='a1').first()
-        return posts.author
+        posts = Post.objects(author='a1').order_by('-publish_date')
     else:
-        posts = Post.objects
+        posts = Post.objects.order_by('-publish_date')
     return render_template('post.html', posts=posts)
 
 
